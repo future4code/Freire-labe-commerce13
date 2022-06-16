@@ -1,48 +1,50 @@
-import { render } from '@testing-library/react'
 import React from 'react'
 import styled from 'styled-components'
 
 const CardContainer = styled.div`
-    width: 18rem;
-    height: auto;
-    font-size: 1.5rem;
+    width: 31%;
+    height: 22rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
     border: 1px solid black;
 `
 
 const ImgCard = styled.img`
     width: 100%;
     height: 70%;
-    margin-bottom: 1rem;
+    margin: 0;
 `
 
-const DescricaoCard = styled.p`
-    margin: 1rem 1rem;
+const DescricaoContainer = styled.div`
+    padding: 1rem;
+    height: auto;
+`
+
+const DescricaoTexto = styled.p`
+    margin: 0;
+    margin-bottom: 0.5rem;
 `
 
 const BotaoCard = styled.button`
+    width: 75%;
     text-align: center;
     display: block;
     margin: 0 auto;
-    font-size: 1.3rem;
-    padding: 0.3rem 0.5rem;
-    margin-bottom: 1rem;
+    font-size: 0.8rem;
 `
 
 class Card extends React.Component {
-
-    state = {
-        produtos: [
-            {img: "https://s1.static.brasilescola.uol.com.br/be/conteudo/images/imagem-em-lente-convexa.jpg", nome: "meteorito", preco: 30},
-        ]
-    }
-
     render() {
         return (
             <CardContainer>
                 <ImgCard src={this.props.img} alt={this.props.nome} />
-                <DescricaoCard>{this.props.nome}</DescricaoCard>
-                <DescricaoCard>R$ {this.props.preco.toFixed(2)}</DescricaoCard>
-                <BotaoCard>Adicionar ao carrinho</BotaoCard>
+                <DescricaoContainer>
+                    <DescricaoTexto>{this.props.nome}</DescricaoTexto>
+                    <DescricaoTexto>R$ {this.props.preco.toFixed(2)}</DescricaoTexto>
+                    //falta fazer um função para o click do botão
+                    <BotaoCard>Adicionar ao carrinho</BotaoCard>
+                </DescricaoContainer>
             </CardContainer>
         )
     }
