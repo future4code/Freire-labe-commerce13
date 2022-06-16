@@ -2,12 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import Card from './Card'
 
+//Container pai das divs DadosContainer e CardsContainer
 const ProdutosContainer = styled.section`
     padding: 1rem;
     width: 60%;
     height: auto;
 `
-
+//Mostra a quantidade de produtos e o select
 const DadosContainer = styled.div`
     display: flex;
     justify-content: space-between;
@@ -18,7 +19,7 @@ const DadosContainer = styled.div`
 const SelectDados = styled.select`
     height: 100%;
 `
-
+//mostra os produtos
 const CardsContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -32,8 +33,8 @@ class Produtos extends React.Component {
         select: "crescente"
     }
 
+    //busca o valor selecionando no botão select do jsx e atualiza o state
     handleSelect = () => {
-        //busca o valor selecionando no botão select do jsx
         const select = document.getElementById("ordem")
         this.setState({
             select: select.options[select.selectedIndex].value
@@ -41,6 +42,8 @@ class Produtos extends React.Component {
     }
 
     render() {
+        
+        //recebe a lista já filtrada do App.js e ordena ela
         const listaOrdenadaDeProdutos = this.props.lista.sort((a, b) => {
             switch(this.state.select) {
                 case "crescente":
@@ -52,6 +55,7 @@ class Produtos extends React.Component {
             }
         })
 
+        //mapeia e cria um card para cada elemento da lista que foi ordenada
         const listaDeProdutos = listaOrdenadaDeProdutos.map((produto) => {
             return (
                 <Card 
@@ -74,6 +78,7 @@ class Produtos extends React.Component {
                     </SelectDados>
                 </DadosContainer>
                 <CardsContainer>
+                    //imprime os produtos filtrados e ordenados aqui
                     {listaDeProdutos}
                 </CardsContainer>
             </ProdutosContainer>

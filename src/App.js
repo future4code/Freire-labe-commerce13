@@ -71,9 +71,11 @@ class App extends React.Component {
 
   render() {
     const produtosFiltrados = this.state.produtos.filter((produto) => {
-    return (produto.preco >= this.state.filtroValorMinimo && produto.preco <= this.state.filtroValorMaximo && produto.nome.includes(this.state.filtroPorNome))   
-    
+      return (produto.preco >= this.state.filtroValorMinimo && produto.preco <= this.state.filtroValorMaximo && produto.nome.includes(this.state.filtroPorNome))   
     }) 
+
+    //  Retirei o map que estava aqui e passei para o componente produtos
+
     return (
       <div>
         <input
