@@ -1,8 +1,12 @@
 import React from "react";
-import styled from "styled-components";
-import cristais from "./imagens/cristais"
-
-
+// import styled from "styled-components";
+import Cristais from "./imagens/cristais.jpg"
+import Diamante from "./imagens/diamante.jpg"
+import Kriptonita from "./imagens/kriptonita.jpg"
+import MultiCor from "./imagens/muiltiCor.jpg"
+import PedrasPreciosas from "./imagens/pedras_preciosas_semi1.jpg"
+import Cristal from "./imagens/cristal.png"
+import Produtos from "./componentes/Produtos"
 
 class App extends React.Component {
   state = {
@@ -10,92 +14,84 @@ class App extends React.Component {
     filtroValorMaximo: 1000000,
     filtroPorNome: "",
 
-      produtos: [
-        {
+    produtos: [
+      {
         nome:"meretoritoA",
         preco: 100,
         id: 1,
-        imagem: {cristais}
+        imagem: Cristais
       },
-        {
+      {
         nome: "meteoritoB",
         preco: 200,
         id: 2,
-        imagem:
+        imagem: Diamante
       },
-        {
+      {
         nome: "meteoritoC",
         preco: 300,
         id: 3,
-        imagem:
+        imagem: Kriptonita
       },
-       {
+      {
         nome: "meteoritoD",
         preco: 300,
         id: 4,
-        imagem:
+        imagem: MultiCor
       },
-       {
+      {
         nome: "meteoritoE",
         preco: 300,
         id: 5,
-        imagem:
+        imagem: PedrasPreciosas
       },
-       {
+      {
         nome: "meteoritoF",
         preco: 300,
         id: 6,
-        imagem:
-      },
-    ]
+        imagem: Cristal
       }
-      onChangeValorMinimo = (event) => {
-        this.setState({
-          filtroValorMinimo: event.target.value,
-        })
-      };
-      onChangeValorMaximo = (event) => {
-        this.setState({
-          filtroValorMaximo: event.target.value,
-        })
-      };
-      onChangeNome = (event) => {
-        this.setState({
-          filtroPorNome: event.target.value,
-        })
-      };
+    ]
+  }
+  onChangeValorMinimo = (event) => {
+    this.setState({
+      filtroValorMinimo: event.target.value,
+    })
+  };
+  onChangeValorMaximo = (event) => {
+    this.setState({
+      filtroValorMaximo: event.target.value,
+    })
+  };
+  onChangeNome = (event) => {
+    this.setState({
+      filtroPorNome: event.target.value,
+    })
+  };
 
   render() {
- const produtosFiltrados = this.state.produtos.filter((produto) => {
+    const produtosFiltrados = this.state.produtos.filter((produto) => {
     return (produto.preco >= this.state.filtroValorMinimo && produto.preco <= this.state.filtroValorMaximo && produto.nome.includes(this.state.filtroPorNome))   
     
- }) 
-const listaDeProdutos = produtosFiltrados.map((produto) => {
-  return (
-    <div>
-      <p>{produto.preco}</p>
-      <p>{produto.nome}</p>
-    </div>
-  )
-})
+    }) 
     return (
-    <div>
       <div>
-        {listaDeProdutos}
+        <input
+          value={this.state.filtroValorMinimo}
+          onChange={this.onChangeValorMinimo}      
+        />
+        <input
+          value={this.state.filtroValorMaximo}
+          onChange={this.onChangeValorMaximo}      
+        />
+        <input
+          value={this.state.filtronome}
+          onChange={this.onChangeNome}      
+        />
+        <div>
+          <Produtos lista={produtosFiltrados}/>
+        </div>
       </div>
-      <input
-      value={this.state.filtroValorMinimo}
-      onChange={this.onChangeValorMinimo}      
-      />
-       <input
-      value={this.state.filtroValorMaximo}
-      onChange={this.onChangeValorMaximo}      
-      />
-       <input
-      value={this.state.filtronome}
-      onChange={this.onChangeNome}      
-      />
-    </div>
     )
   }
 }
