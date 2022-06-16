@@ -42,7 +42,7 @@ class Card extends React.Component {
                 <DescricaoContainer>
                     <DescricaoTexto>{this.props.nome}</DescricaoTexto>
                     <DescricaoTexto>R$ {this.props.preco.toFixed(2)}</DescricaoTexto>
-                    //falta fazer um função para o click do botão
+                    {/* falta fazer um função para o click do botão */}
                     <BotaoCard>Adicionar ao carrinho</BotaoCard>
                 </DescricaoContainer>
             </CardContainer>

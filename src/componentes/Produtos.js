@@ -78,7 +78,7 @@ class Produtos extends React.Component {
                     </SelectDados>
                 </DadosContainer>
                 <CardsContainer>
-                    //imprime os produtos filtrados e ordenados aqui
+                    {/* imprime os produtos filtrados e ordenados aqui */}
                     {listaDeProdutos}
                 </CardsContainer>
             </ProdutosContainer>
