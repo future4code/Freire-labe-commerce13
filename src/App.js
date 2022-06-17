@@ -7,6 +7,7 @@ import MultiCor from "./imagens/muiltiCor.jpg"
 import PedrasPreciosas from "./imagens/pedras_preciosas_semi1.jpg"
 import Cristal from "./imagens/cristal.png"
 import Produtos from "./componentes/Produtos"
+import Carrinho from "./componentes/Carrinho"
 
 class App extends React.Component {
   state = {
@@ -93,6 +94,7 @@ class App extends React.Component {
         <div>
           <Produtos lista={produtosFiltrados}/>
         </div>
+        <Carrinho/>
       </div>
     )
   }
