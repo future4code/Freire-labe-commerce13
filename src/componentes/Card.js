@@ -33,8 +33,9 @@ const BotaoCard = styled.button`
     margin: 0 auto;
     font-size: 0.8rem;
 `
-
+ 
 class Card extends React.Component {
+    
     render() {
         return (
             <CardContainer>
@@ -43,7 +44,7 @@ class Card extends React.Component {
                     <DescricaoTexto>{this.props.nome}</DescricaoTexto>
                     <DescricaoTexto>R$ {this.props.preco.toFixed(2)}</DescricaoTexto>
                     {/* falta fazer um função para o click do botão */}
-                    <BotaoCard>Adicionar ao carrinho</BotaoCard>
+                    <BotaoCard onClick={this.props.adicionaItem}>Adicionar ao carrinho</BotaoCard>
                 </DescricaoContainer>
             </CardContainer>
         )

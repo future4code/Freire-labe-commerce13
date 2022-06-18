@@ -20,37 +20,43 @@ class App extends React.Component {
         nome:"meretoritoA",
         preco: 100,
         id: 1,
-        imagem: Cristais
+        imagem: Cristais,
+        quantidade: 0
       },
       {
         nome: "meteoritoB",
         preco: 200,
         id: 2,
-        imagem: Diamante
+        imagem: Diamante,
+        quantidade: 9
       },
       {
         nome: "meteoritoC",
         preco: 300,
         id: 3,
-        imagem: Kriptonita
+        imagem: Kriptonita,
+        quantidade: 0
       },
       {
         nome: "meteoritoD",
         preco: 300,
         id: 4,
-        imagem: MultiCor
+        imagem: MultiCor,
+        quantidade: 0
       },
       {
         nome: "meteoritoE",
         preco: 300,
         id: 5,
-        imagem: PedrasPreciosas
+        imagem: PedrasPreciosas,
+        quantidade: 0
       },
       {
         nome: "meteoritoF",
         preco: 300,
         id: 6,
-        imagem: Cristal
+        imagem: Cristal,
+        quantidade: 0
       }
     ]
   }
@@ -69,6 +75,26 @@ class App extends React.Component {
       filtroPorNome: event.target.value,
     })
   };
+  //Adiciona Item no carrnho- chamada no botão do card
+ 
+
+removerItem = () => {
+    this.setState({quantidade: this.state.produtos.quantidade -1})
+}
+
+adicionaItem = () =>{
+  this.setState({quantidade: this.produtos.quantidade +1})
+};
+//calcula o valor tatal da compra
+precoTotal = () => {
+    let total;
+    for (let x of this.state.produtos) {
+      total =+ this.produtos.preco * this.produtos.quantidade
+    }
+    this.setState({valorTotal: total })
+
+}
+
 
   render() {
     const produtosFiltrados = this.state.produtos.filter((produto) => {
@@ -94,7 +120,10 @@ class App extends React.Component {
         <div>
           <Produtos lista={produtosFiltrados}/>
         </div>
-        <Carrinho/>
+        <Carrinho
+          pdt = {[...this.state.produtos]}
+          onClick = {this.removerItem}
+        />
       </div>
     )
   }
