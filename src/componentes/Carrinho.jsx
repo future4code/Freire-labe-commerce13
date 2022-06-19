@@ -1,14 +1,13 @@
 
 import React from 'react';
-import ItemCarrinho from './ItemCarrinho';
-import styled from 'styled-components';
-// import './Carrinho.css';
 
-let produtos;
+import styled from 'styled-components';
+
+//Modificações de 18/06/2022
 
 const ContainerCarrinho = styled.div`
     width: 20%;
-    margin-left: 75%;
+    margin-left: 2%;
     margin-top: 2%;
     border: 1px solid black;
     padding: 0.5%;
@@ -18,49 +17,33 @@ const TabelaCarrinho = styled.table`
 `
 export default class Carrinho extends React.Component{
 
-  state = {
-    quantidade: 1,
-    valorTotal: 0,
-  
-  };
-
-  //Adiciona Item no carrnho- chamada no botão do card
-  adicionaItem = () =>{
-    this.setState({quantidade: this.state.quantidade +1})
-  }
-
-  //Remove item do caarinho - chamado no botao do item
-  removerItem = () => {
-      this.setState({quantidade: this.state.quantidade -1})
-  }
-
-  //calcula o valor tatal da compra
-  precoTotal = () => {
-      let total;
-      for (let x of produtos) {
-        total =+ this.state.produtos.preco * this.state.quantidade
-      }
-      this.setState({valorTotal: total })
-
-  }
-
+ 
   render(){
     
     //Renderização condicional, caso tenha 0 itens não renderiza 
-    // let item;
+     let item;
 
-    // if(this.state.quantidade > 0){
-    //   item =       <ItemCarrinho/>
 
-    // }
+    const produtosDois = this.props.pdt.map((produto) => {
+       if(produto.quantidade > 0){
+        return item =      
+        <tr><td> <p>{produto.quantidade} x </p></td>
+       <td><p>{produto.nome}</p></td> 
+       <td><button onClick={this.props.onClick}>Remover</button></td></tr> 
+  
+      }
+    })
+    
     return (
   <ContainerCarrinho>
    <h3>Carrinho 🛒</h3>
    <TabelaCarrinho>
-   {/* {item} */}
+
+   {produtosDois}
+
    </TabelaCarrinho>
    
-    <p>Valor Total: R$ valorTotal</p>
+    <p>Valor Total: R$ {this.props.valorTotal}</p>
   
   </ContainerCarrinho>
   )
