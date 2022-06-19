@@ -21,7 +21,8 @@ export default class Carrinho extends React.Component{
   render(){
     
     //Renderização condicional, caso tenha 0 itens não renderiza 
-    let item;
+     let item;
+
 
     const produtosDois = this.props.pdt.map((produto) => {
        if(produto.quantidade > 0){
@@ -37,7 +38,9 @@ export default class Carrinho extends React.Component{
   <ContainerCarrinho>
    <h3>Carrinho 🛒</h3>
    <TabelaCarrinho>
+
    {produtosDois}
+
    </TabelaCarrinho>
    
     <p>Valor Total: R$ {this.props.valorTotal}</p>
