@@ -5,8 +5,11 @@ import Card from './Card'
 //Container pai das divs DadosContainer e CardsContainer
 const ProdutosContainer = styled.section`
     padding: 1rem;
-    width: 60%;
+    width: 700px;
     height: auto;
+    margin: 0px 30px;
+    background-color: rgb(0, 6, 20, 0.7);
+    color:lightblue;
 `
 //Mostra a quantidade de produtos e o select
 const DadosContainer = styled.div`
@@ -26,6 +29,7 @@ const CardsContainer = styled.div`
     justify-content: space-around;
     width: 100%;
     row-gap: 1rem;
+    
 `
 
 class Produtos extends React.Component {

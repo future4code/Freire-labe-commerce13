@@ -8,6 +8,7 @@ const CardContainer = styled.div`
     flex-direction: column;
     font-size: 1rem;
     border: 1px solid black;
+    
 `
 
 const ImgCard = styled.img`
@@ -19,6 +20,7 @@ const ImgCard = styled.img`
 const DescricaoContainer = styled.div`
     padding: 1rem;
     height: auto;
+    text-align: center;
 `
 
 const DescricaoTexto = styled.p`
@@ -39,6 +41,7 @@ class Card extends React.Component {
     render() {
         return (
             <CardContainer>
+                
                 <ImgCard src={this.props.img} alt={this.props.nome} />
                 <DescricaoContainer>
                     <DescricaoTexto>{this.props.nome}</DescricaoTexto>
@@ -46,6 +49,7 @@ class Card extends React.Component {
                     {/* Adicionei um id ao botão que será passado em Produtos */}
                     <BotaoCard onClick={this.props.onClick} id={this.props.id}>Adicionar ao carrinho</BotaoCard>
                 </DescricaoContainer>
+                
             </CardContainer>
         )
     }

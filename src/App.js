@@ -1,5 +1,5 @@
 import React from "react";
-// import styled from "styled-components";
+import styled from "styled-components";
 import Cristais from "./imagens/cristais.jpg"
 import Diamante from "./imagens/diamante.jpg"
 import Kriptonita from "./imagens/kriptonita.jpg"
@@ -8,6 +8,9 @@ import PedrasPreciosas from "./imagens/pedras_preciosas_semi1.jpg"
 import Cristal from "./imagens/cristal.png"
 import Produtos from "./componentes/Produtos"
 import Carrinho from "./componentes/Carrinho"
+import "./App.css"
+
+
 
 class App extends React.Component {
   state = {
@@ -18,43 +21,43 @@ class App extends React.Component {
 
     produtos: [
       {
-        nome:"meretoritoA",
-        preco: 100,
+        nome:"Cristal Parauapebas",
+        preco: 10000,
         id: 1,
         imagem: Cristais,
         quantidade: 0
       },
       {
-        nome: "meteoritoB",
-        preco: 200,
+        nome: "Diamante de Parambú",
+        preco: 200565,
         id: 2,
         imagem: Diamante,
         quantidade: 0
       },
       {
-        nome: "meteoritoC",
-        preco: 300,
+        nome: "kriptonita de Soledade",
+        preco: 306756,
         id: 3,
         imagem: Kriptonita,
         quantidade: 0
       },
       {
-        nome: "meteoritoD",
-        preco: 300,
+        nome: "Meteorito Conquista",
+        preco: 365750,
         id: 4,
         imagem: MultiCor,
         quantidade: 0
       },
       {
-        nome: "meteoritoE",
-        preco: 300,
+        nome: "Meteoritos Sortidos",
+        preco: 36570,
         id: 5,
         imagem: PedrasPreciosas,
         quantidade: 0
       },
       {
-        nome: "meteoritoF",
-        preco: 300,
+        nome: "Crisital Bendegó",
+        preco: 67650,
         id: 6,
         imagem: Cristal,
         quantidade: 0
@@ -135,19 +138,25 @@ let total = 0
     }) 
 
     return (
-      <div>
+      <div className="main">
+        <div className="filtro">
+          <h3>Filtros</h3>
+          <label>Valor mínimo:</label>
         <input
           value={this.state.filtroValorMinimo}
           onChange={this.onChangeValorMinimo}      
         />
+         <label>Valor máximo:</label>
         <input
           value={this.state.filtroValorMaximo}
           onChange={this.onChangeValorMaximo}      
         />
+         <label>Busca por nome:</label>
         <input
           value={this.state.filtronome}
           onChange={this.onChangeNome}      
         />
+        </div>
         <div>
           <Produtos 
             lista={produtosFiltrados}

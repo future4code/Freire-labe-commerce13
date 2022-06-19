@@ -6,9 +6,10 @@ import styled from 'styled-components';
 //Modificações de 18/06/2022
 
 const ContainerCarrinho = styled.div`
-    width: 20%;
-    margin-left: 2%;
-    margin-top: 2%;
+    width: 25%;
+    background-color: rgb(0, 6, 20, 0.7);
+    color: lightblue;
+    
     border: 1px solid black;
     padding: 0.5%;
     
