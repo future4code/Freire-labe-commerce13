@@ -64,6 +64,11 @@ class Produtos extends React.Component {
                     nome={produto.nome}
                     preco={produto.preco}
                     key={produto.id}
+                    // Adicionei duas novas propriedades, 
+                    // onClick para passar a chamadad e função entre o card e app
+                    // e id para identificar cada item no carrinho
+                    onClick={this.props.onClick}
+                    id={produto.id}
                 />
             )
         })

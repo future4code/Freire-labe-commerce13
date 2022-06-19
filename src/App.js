@@ -28,7 +28,7 @@ class App extends React.Component {
         preco: 200,
         id: 2,
         imagem: Diamante,
-        quantidade: 9
+        quantidade: 0
       },
       {
         nome: "meteoritoC",
@@ -82,8 +82,21 @@ removerItem = () => {
     this.setState({quantidade: this.state.produtos.quantidade -1})
 }
 
-adicionaItem = () =>{
-  this.setState({quantidade: this.produtos.quantidade +1})
+adicionaItem = (event) =>{
+  //recebe o id do item clicado e transforma em number
+  const idItemClicado = Number(event.target.id)
+  //faz um map na lista de produtos que está no state e aumenta a quantidade do produto clicado
+  const novaListaProdutos = this.state.produtos.map(produto => {
+    if(produto.id === idItemClicado){
+      produto.quantidade++;
+    }
+    return produto
+  })
+
+  //atualiza a lista do state com a nova lista com a quantidade do item aumentada
+  this.setState({
+    produtos: novaListaProdutos
+  })
 };
 //calcula o valor tatal da compra
 precoTotal = () => {
@@ -95,13 +108,10 @@ precoTotal = () => {
 
 }
 
-
   render() {
     const produtosFiltrados = this.state.produtos.filter((produto) => {
       return (produto.preco >= this.state.filtroValorMinimo && produto.preco <= this.state.filtroValorMaximo && produto.nome.includes(this.state.filtroPorNome))   
     }) 
-
-    //  Retirei o map que estava aqui e passei para o componente produtos
 
     return (
       <div>
@@ -118,7 +128,10 @@ precoTotal = () => {
           onChange={this.onChangeNome}      
         />
         <div>
-          <Produtos lista={produtosFiltrados}/>
+          <Produtos 
+            lista={produtosFiltrados}
+            onClick={this.adicionaItem}
+          />
         </div>
         <Carrinho
           pdt = {[...this.state.produtos]}
