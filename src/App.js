@@ -14,6 +14,7 @@ class App extends React.Component {
     filtroValorMinimo: 1,
     filtroValorMaximo: 1000000,
     filtroPorNome: "",
+    valorTotal: 0,
 
     produtos: [
       {
@@ -78,9 +79,20 @@ class App extends React.Component {
   //Adiciona Item no carrnho- chamada no botão do card
  
 
-removerItem = () => {
-    this.setState({quantidade: this.state.produtos.quantidade -1})
-}
+removerItem = (event) => {
+    //recebe o id do item clicado e transforma em number
+  const idItemClicado = Number(event.target.id)
+  //faz um map na lista de produtos que está no state e aumenta a quantidade do produto clicado
+  const novaListaProdutos = this.state.produtos.map(produto => {
+    if(produto.id === idItemClicado){
+      produto.quantidade--;
+    }
+    return produto
+  })
+  this.setState({
+    produtos: novaListaProdutos
+})
+};
 
 adicionaItem = (event) =>{
   //recebe o id do item clicado e transforma em number
@@ -97,16 +109,25 @@ adicionaItem = (event) =>{
   this.setState({
     produtos: novaListaProdutos
   })
+  this.precoTotal()
 };
-//calcula o valor tatal da compra
+
+//calcula o valor total da compra
+
 precoTotal = () => {
-    let total;
+ 
+
+let total = 0
     for (let x of this.state.produtos) {
-      total =+ this.produtos.preco * this.produtos.quantidade
+      total += (x.preco * x.quantidade)
     }
     this.setState({valorTotal: total })
 
-}
+ 
+ 
+  // console.log('preço total foi chamada', this.state.valorTotal, total, item.preco, item.quantidade)
+
+};
 
   render() {
     const produtosFiltrados = this.state.produtos.filter((produto) => {
@@ -135,7 +156,10 @@ precoTotal = () => {
         </div>
         <Carrinho
           pdt = {[...this.state.produtos]}
-          onClick = {this.removerItem}
+          remove = {this.removerItem}
+          totalFuncao = {this.precoTotal}
+          total= {this.state.valorTotal}
+          
         />
       </div>
     )

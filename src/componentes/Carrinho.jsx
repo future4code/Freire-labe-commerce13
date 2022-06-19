@@ -30,7 +30,7 @@ export default class Carrinho extends React.Component{
         return item =      
         <tr><td> <p>{produto.quantidade} x </p></td>
        <td><p>{produto.nome}</p></td> 
-       <td><button onClick={this.props.onClick}>Remover</button></td></tr> 
+       <td><button onClick={this.props.remove} id={this.props.id}>Remover</button></td></tr> 
   
       }
     })
@@ -44,8 +44,8 @@ export default class Carrinho extends React.Component{
    {produtosDois}
 
    </TabelaCarrinho>
-   
-    <p>Valor Total: R$ {this.props.valorTotal}</p>
+
+    <p>Valor Total: R$ {this.props.total}</p>
     </center>
   </ContainerCarrinho>
   )
