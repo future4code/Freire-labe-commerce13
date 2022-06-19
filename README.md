@@ -4,7 +4,7 @@
 
 Meteoritos e aerolitos como pedras preciosas
 
-### Como navegar no nosso chat
+### Como navegar no nosso site
 - O link para nosso site está logo abaixo ⬇(Link Surge)
 - É possível filtrar os produtos do nosso site por **Valor mínimo**, **Valor máximo** e **Buscar por nome**(a busca por nome é Case-sensitive: cuidado com as letras maiúsculas e minúsculas) acessando os campos na parte esquerda da tela
 - Há uma lista de produtos com os items disponíveis
