@@ -18,6 +18,6 @@ Meteoritos e aerolitos como pedras preciosas
 - Os items do carrinho não serão salvos no local storage
 
 ### Link Surge
-TIRE PRINTS DAS TELAS DO SEU SITE E COLE AQUI
+https://healthy-dress.surge.sh
 
 ### Imagens
