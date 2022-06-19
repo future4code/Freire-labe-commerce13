@@ -11,6 +11,7 @@ const ContainerCarrinho = styled.div`
     margin-top: 2%;
     border: 1px solid black;
     padding: 0.5%;
+    
 `
 const TabelaCarrinho = styled.table`
     margin: auto;
@@ -36,6 +37,7 @@ export default class Carrinho extends React.Component{
     
     return (
   <ContainerCarrinho>
+    <center>
    <h3>Carrinho 🛒</h3>
    <TabelaCarrinho>
 
@@ -44,7 +46,7 @@ export default class Carrinho extends React.Component{
    </TabelaCarrinho>
    
     <p>Valor Total: R$ {this.props.valorTotal}</p>
-  
+    </center>
   </ContainerCarrinho>
   )
   }
