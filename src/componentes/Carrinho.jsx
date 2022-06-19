@@ -2,7 +2,7 @@
 import React from 'react';
 import ItemCarrinho from './ItemCarrinho';
 import styled from 'styled-components';
-import './Carrinho.css';
+// import './Carrinho.css';
 
 let produtos;
 
@@ -47,17 +47,17 @@ export default class Carrinho extends React.Component{
   render(){
     
     //Renderização condicional, caso tenha 0 itens não renderiza 
-    let item;
+    // let item;
 
-    if(this.state.quantidade > 0){
-      item =       <ItemCarrinho/>
+    // if(this.state.quantidade > 0){
+    //   item =       <ItemCarrinho/>
 
-    }
+    // }
     return (
   <ContainerCarrinho>
    <h3>Carrinho 🛒</h3>
    <TabelaCarrinho>
-   {item}
+   {/* {item} */}
    </TabelaCarrinho>
    
     <p>Valor Total: R$ valorTotal</p>

@@ -43,8 +43,8 @@ class Card extends React.Component {
                 <DescricaoContainer>
                     <DescricaoTexto>{this.props.nome}</DescricaoTexto>
                     <DescricaoTexto>R$ {this.props.preco.toFixed(2)}</DescricaoTexto>
-                    {/* falta fazer um função para o click do botão */}
-                    <BotaoCard onClick={this.props.adicionaItem}>Adicionar ao carrinho</BotaoCard>
+                    {/* Adicionei um id ao botão que será passado em Produtos */}
+                    <BotaoCard onClick={this.props.onClick} id={this.props.id}>Adicionar ao carrinho</BotaoCard>
                 </DescricaoContainer>
             </CardContainer>
         )
